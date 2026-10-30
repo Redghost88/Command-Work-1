@@ -78,3 +78,9 @@ def send():
         print("Заявка отправлена, скопируйте код книги для получения")
         print("Код книги: ", random.randint(1111111111, 9999999999))
         menu(book)
+
+
+def reset():
+    global book
+    book = 0
+    menu_no_choice()
