@@ -1,3 +1,5 @@
+import random
+
 book = 0
 history = []
 def catalogue():
@@ -52,3 +54,27 @@ def menu(book):
         reset()
 
 
+def history():
+    global history
+    global book
+    lenght = len(history)
+    print("Ранее выбирались следующие книги: ")
+    for i in range(lenght):
+        print(history[i])
+
+    print("Нажмите 0 для выхода")
+    a = int(input())
+    menu(book)
+
+
+def send():
+    err = random.randint(0, 10)
+    global book
+    if err == 9:
+        print("Ошибка отправки заявки. Попробуйте еще раз позже")
+        menu(book)
+        return 0
+    else:
+        print("Заявка отправлена, скопируйте код книги для получения")
+        print("Код книги: ", random.randint(1111111111, 9999999999))
+        menu(book)
