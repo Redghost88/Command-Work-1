@@ -1,7 +1,8 @@
 import random
 
 book = 0
-history = []
+history_arr = []
+
 def catalogue():
     print("Выберите книгу из каталога и напишите ее номер для выбора:")
     print("0. Сброс")
@@ -19,7 +20,7 @@ def catalogue():
     if book == 0:
         menu_no_choice()
     else:
-        history.append(book)
+        history_arr.append(book)
         menu(book)
 
 def menu_no_choice():
@@ -57,14 +58,18 @@ def menu(book):
 def history():
     global history
     global book
-    lenght = len(history)
+    lenght = len(history_arr)
     print("Ранее выбирались следующие книги: ")
     for i in range(lenght):
-        print(history[i])
+        print(history_arr[i])
 
     print("Нажмите 0 для выхода")
     a = int(input())
-    menu(book)
+    if book == 0:
+        menu_no_choice()
+    else:
+        history_arr.append(book)
+        menu(book)
 
 
 def send():
@@ -84,4 +89,8 @@ def reset():
     global book
     book = 0
     menu_no_choice()
-    int a
+
+def main():
+    menu_no_choice()
+if __name__ == '__main__':
+    main()
