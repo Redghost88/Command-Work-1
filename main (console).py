@@ -1,4 +1,5 @@
-
+book = 0
+history = []
 def catalogue():
     print("Выберите книгу из каталога и напишите ее номер для выбора:")
     print("0. Сброс")
@@ -9,8 +10,15 @@ def catalogue():
     print("5. География")
     print("6. Информатика")
 
-    choice = int(input())
-    return choice
+    global book
+    global history
+    book = int(input())
+
+    if book == 0:
+        menu_no_choice()
+    else:
+        history.append(book)
+        menu(book)
 
 def menu_no_choice():
     print("Выберите функцию:")
@@ -19,7 +27,11 @@ def menu_no_choice():
     print("2. История")
 
     choice = int(input())
-    return choice
+    if choice == 1:
+        catalogue()
+    if choice == 2:
+        history()
+
 
 def menu(book):
     print("Выберите функцию:")
@@ -30,5 +42,13 @@ def menu(book):
     print("4. Сброс")
 
     choice = int(input())
-    return choice
+    if choice == 1:
+        catalogue()
+    if choice == 2:
+        send()
+    if choice == 3:
+        history()
+    if choice == 4:
+        reset()
+
 
