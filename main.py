@@ -43,7 +43,10 @@ def menu_no_choice():
         print("Введите пароль:")
         if (int(input()) != 777):
             print("Неверный пароль!")
-            menu(book)
+            if (book != 0):
+                menu(book)
+            if (book == 0):
+                menu_no_choice()
         else:
             Admin_Rights = 1
     if choice == 3 and Admin_Rights == 1:
@@ -78,7 +81,10 @@ def menu(book):
         print("Введите пароль:")
         if (int(input()) != 777):
             print("Неверный пароль!")
-            menu(book)
+            if (book != 0):
+                menu(book)
+            if (book == 0):
+                menu_no_choice()
         else:
             Admin_Rights = 1
     if choice == 5 and Admin_Rights == 1:
