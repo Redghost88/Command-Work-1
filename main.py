@@ -78,7 +78,10 @@ def menu(book):
         print("Введите пароль:")
         if (int(input()) != 777):
             print("Неверный пароль!")
-            menu(book)
+            if (book != 0):
+                menu(book)
+            if (book == 0):
+                menu_no_choice()
         else:
             Admin_Rights = 1
     if choice == 5 and Admin_Rights == 1:
@@ -100,9 +103,6 @@ def delete_book():
     editor()
 
 def add_book():
-    print("Введите номер книги:")
-    num = int(input())
-    num -= 1
     print("Введите название книги:")
     booklist.append(input())
     editor()
