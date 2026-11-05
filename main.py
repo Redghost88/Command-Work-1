@@ -19,7 +19,7 @@ def catalogue():
         menu_no_choice()
     else:
         book -= 1
-        history_arr.append(book)
+        history_arr.append(booklist[book])
         menu(book)
 
 def menu_no_choice():
