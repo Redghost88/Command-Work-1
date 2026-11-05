@@ -24,7 +24,7 @@ def catalogue():
 
 def menu_no_choice():
     print("Выберите функцию:")
-    print("Выбор: Книга не выбрана")
+    print("Выбранная книга: Книга не выбрана")
     print("1. Каталог")
     print("2. История")
 
@@ -37,7 +37,7 @@ def menu_no_choice():
 
 def menu(book):
     print("Выберите функцию:")
-    print("Выбор:", booklist[book])
+    print("Выбранная книга:", booklist[book])
     print("1. Каталог")
     print("2. Отправка заявки")
     print("3. История")
