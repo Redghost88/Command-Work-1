@@ -87,7 +87,7 @@ def menu(book):
 def edit_book():
     print("Введите номер книги:")
     num = int(input())
-    num += -1
+    num -= 1
     print("Введите новое название книги:")
     booklist[num] = input()
     editor()
@@ -95,14 +95,14 @@ def edit_book():
 def delete_book():
     print("Введите номер книги:")
     num = int(input())
-    num += 1
+    num -= 1
     del booklist[num]
     editor()
 
 def add_book():
     print("Введите номер книги:")
     num = int(input())
-    num += 1
+    num -= 1
     print("Введите название книги:")
     booklist.append(input())
     editor()
