@@ -25,16 +25,29 @@ def catalogue():
         menu(book)
 
 def menu_no_choice():
+    global Admin_Rights
     print("Выберите функцию:")
     print("Выбранная книга: Книга не выбрана")
     print("1. Каталог")
     print("2. История")
-
+    if (Admin_Rights == 0):
+        print("3. Выдача админ прав")
+    else:
+        print("3. Изменить каталог книг")
     choice = int(input())
     if choice == 1:
         catalogue()
     if choice == 2:
         history()
+    if choice == 3 and Admin_Rights == 0:
+        print("Введите пароль:")
+        if (int(input()) != 777):
+            print("Неверный пароль!")
+            menu(book)
+        else:
+            Admin_Rights = 1
+    if choice == 3 and Admin_Rights == 1:
+        editor()
 
 
 def menu(book):
@@ -74,7 +87,7 @@ def menu(book):
 def edit_book():
     print("Введите номер книги:")
     num = int(input())
-    num += 1
+    num += -1
     print("Введите новое название книги:")
     booklist[num] = input()
     editor()
@@ -103,8 +116,10 @@ def editor():
     print("0. Выход из редактора")
 
     choice = int(input())
-    if (choice == 0):
+    if (choice == 0 and book != 0):
         menu(book)
+    if (choice == 0 and book == 0):
+        menu_no_choice()
     if choice == 1:
         edit_book()
     if choice == 2:
