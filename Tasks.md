@@ -6,3 +6,4 @@ B4  Результат        B3         Complete <br>
 B5  История          B4         Complete <br>
 B6  Сброс            B4         Complete <br>
 B10 Изменение списка книг со статичного на динамичный  B1  Complete <br>
+B11 Админ права     B4          In progress <br>
