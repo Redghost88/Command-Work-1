@@ -4,7 +4,7 @@ Admin_Rights = 0
 booklist = ["Азбука", "Математика", "История", "Биология", "География", "Информатика"]
 book = 0
 history_arr = []
-
+no_available_book = 0
 def catalogue():
     print("Выберите книгу из каталога и напишите ее номер для выбора:")
     print("0. Сброс")
@@ -90,6 +90,12 @@ def menu(book):
     if choice == 5 and Admin_Rights == 1:
         editor()
 
+def no_available():
+    global no_available_book
+    no_available_book = random.randint(0, len(history_arr))
+    booklist[no_available_book] = booklist[no_available_book, "(не в наличии)"]
+
+
 def edit_book():
     print("Введите номер книги:")
     num = int(input())
@@ -166,6 +172,7 @@ def reset():
     menu_no_choice()
 
 def main():
+    no_available()
     menu_no_choice()
 if __name__ == '__main__':
     main()
