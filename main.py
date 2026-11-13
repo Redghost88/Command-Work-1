@@ -93,7 +93,7 @@ def menu(book):
 def no_available():
     global no_available_book
     no_available_book = random.randint(0, len(history_arr))
-    booklist[no_available_book] = booklist[no_available_book, "(не в наличии)"]
+    booklist[no_available_book] = booklist[no_available_book] + " (не в наличии)"
 
 
 def edit_book():
