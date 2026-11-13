@@ -5,6 +5,7 @@ booklist = ["Азбука", "Математика", "История", "Биол�
 book = 0
 history_arr = []
 no_available_book = 0
+booking_book = []
 def catalogue():
     print("Выберите книгу из каталога и напишите ее номер для выбора:")
     print("0. Сброс")
@@ -52,6 +53,24 @@ def menu_no_choice():
     if choice == 3 and Admin_Rights == 1:
         editor()
 
+def booking():
+    global book
+    global no_available_book
+    global booking_book
+    print("Выберите книгу для брони:")
+    num = int(input())
+    if len(booking_book) == 0:
+        booklist[num - 1] = booklist[num - 1] + " (забронированно)"
+        booking_book.append(num)
+    else:
+        for i in range(len(booking_book)):
+            if booking_book[i] == num:
+                print("Эта книга уже забронирована!")
+
+            else:
+                booklist[num - 1] = booklist[num - 1] + " (забронированно)"
+                booking_book.append(num)
+    menu(book)
 
 def menu(book):
     global Admin_Rights
@@ -61,11 +80,11 @@ def menu(book):
     print("2. Отправка заявки")
     print("3. История")
     print("4. Сброс")
-
     if (Admin_Rights == 0):
         print("5. Выдача админ прав")
     else:
         print("5. Изменить каталог книг")
+    print("6. Бронирование книг")
 
 
 
@@ -90,6 +109,8 @@ def menu(book):
             Admin_Rights = 1
     if choice == 5 and Admin_Rights == 1:
         editor()
+    if choice == 6:
+        booking()
 
 def no_available():
     global no_available_book
