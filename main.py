@@ -112,10 +112,16 @@ def menu(book):
     if choice == 6:
         booking()
 
-def no_available():
+def init():
     global no_available_book
-    no_available_book = random.randint(0, len(booklist))
+    no_available_book = random.randint(0, len(booklist)-1)
     booklist[no_available_book] = booklist[no_available_book] + " (не в наличии)"
+    global booking_book
+    booked_book = random.randint(0, len(booklist)-1)
+    booklist[booked_book] = booklist[booked_book] + " (забронированно)"
+    booking_book.append(booked_book + 1)
+
+
 
 
 def edit_book():
@@ -199,7 +205,7 @@ def reset():
     menu_no_choice()
 
 def main():
-    no_available()
+    init()
     menu_no_choice()
 if __name__ == '__main__':
     main()
