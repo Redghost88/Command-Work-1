@@ -61,6 +61,7 @@ def menu(book):
     print("2. Отправка заявки")
     print("3. История")
     print("4. Сброс")
+
     if (Admin_Rights == 0):
         print("5. Выдача админ прав")
     else:
@@ -92,7 +93,7 @@ def menu(book):
 
 def no_available():
     global no_available_book
-    no_available_book = random.randint(0, len(history_arr))
+    no_available_book = random.randint(0, len(booklist))
     booklist[no_available_book] = booklist[no_available_book] + " (не в наличии)"
 
 
